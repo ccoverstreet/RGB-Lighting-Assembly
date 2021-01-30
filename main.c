@@ -24,14 +24,8 @@ int main() {
 		0xff00ffff
 	};
 
-	for (int i = 0; i < STACK_SIZE; i++) {
-		for (int j = 0; j < 4; j++) {
-			printf("%u\n", stack[i]);
-		}
-	}
-	
 	// Custom definitions start at 0x00000010
-	i_set[0x00000010] = (Instruction){print_RGB, 0};
+	i_set[0x00000010] = (Instruction){print_RGB, 1};
 
 	int cur_index = 0;
 	while (cur_index >= 0 && cur_index < STACK_SIZE) {
@@ -47,7 +41,7 @@ int main() {
 		} else {
 			cur_index += 1;
 		}
-		msleep(200);
+		msleep(100);
 	}
 
 	return 0;
