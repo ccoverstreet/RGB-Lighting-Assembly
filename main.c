@@ -1,7 +1,7 @@
 #include "./stack.h"
 #include "./instructions.h"
 #include <stdio.h>
-#include <windows.h>
+#include "./timing.h"
 
 #define STACK_SIZE 15
 
@@ -28,7 +28,7 @@ int main() {
 		} else {
 			cur_index += 1;
 		}
-		Sleep(500);
+		msleep(400);
 	}
 
 	return 0;

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <stdio.h>
-#include <windows.h>
+#include "./timing.h"
 
 int R1;
 int R2;
@@ -75,7 +75,7 @@ int linear_color_change(int stack_ind, unsigned int *argv) {
 
 	for (unsigned int i = 0; i < n_steps; i++) {
 		printf("%u,", i);
-		Sleep(time_step);
+		msleep(time_step);
 	}
 	printf("\n");
 
