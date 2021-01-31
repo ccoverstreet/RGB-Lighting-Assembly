@@ -1,28 +1,16 @@
 #include "./stack.h"
 #include "./instructions.h"
 #include "./custom_instructions.h"
+#include "./programparser.h"
 
 #include <stdio.h>
 #include "./timing.h"
 
-#define STACK_SIZE 30
 
 int main() {
-	unsigned int stack[STACK_SIZE] = {
-		0x00000008, // Set R1 to 0
-		0x00000000,
-		0x00000000, // Placeholder for doing stuff in loop
-		0x00000009, // Increment R1 by 1
-		0x00000001,
-		0x00000007, // Jump if R1 >= 2, should do two iterations
-		0x00000005, // Jumps to NOOP after GOTO
-		0x00000002,
-		0x00000001, // GOTO 2, start of loop
-		0x00000002,
-		0x00000000,
-		0x00000010,
-		0xff00ffff
-	};
+	unsigned int stack[STACK_SIZE] = {};
+
+	parse_program(sample, stack, STACK_SIZE);
 
 	// Custom definitions start at 0x00000010
 	i_set[0x00000010] = (Instruction){print_RGB, 1};

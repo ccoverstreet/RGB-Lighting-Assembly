@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include "./timing.h"
 
+#define STACK_SIZE 30
+
 int R1;
 
 void print_registers() {
@@ -85,6 +87,12 @@ int decrement_R1(int stack_ind, unsigned int *argv) {
 	return stack_ind + 2;
 }
 
+int sleep(int stack_ind, unsigned int *argv) {
+	msleep(argv[1]);
+
+	return stack_ind + 2;
+}
+
 
 Instruction i_set[32] = {
 	{noop, 0}, // 0x00000000
@@ -98,7 +106,7 @@ Instruction i_set[32] = {
 	{set_R1, 1}, // 0x00000008
 	{increment_R1, 1}, // 0x00000009
 	{decrement_R1, 1}, // 0x0000000a
-	{noop, 0}, // 0x00000009
+	{sleep, 1}, // 0x0000000b
 	{noop, 0}, // 0x0000000c
 	{noop, 0}, // 0x0000000d
 	{noop, 0}, // 0x0000000e

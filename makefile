@@ -1,8 +1,10 @@
-CC = gcc
+CC = zig cc 
 
-driver: main.c instructions.h
-	$(CC) main.c -o driver
+driver: src/main.c src/instructions.h src/programparser.h
+	$(CC) src/main.c -o driver
 
 run: driver
 	./driver
 
+clean:
+	rm driver

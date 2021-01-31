@@ -36,5 +36,7 @@ Current Size Allocated: 16 instructions
    - Increments R1 by first argument
  - 0x0000000a: decrement_R1
    - Decrements R1 by first argument
+ - 0x0000000b: sleep
+   - Sleeps by first argument (in milliseconds)
 
  
