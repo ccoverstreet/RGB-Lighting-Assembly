@@ -6,6 +6,10 @@ The first implementation test would be in some ESP8266 controlled RGB lights. Th
 
 A fun goal that probably won't happen is to make a higher level language that compiles down into this assembly like language.
 
+## Status
+
+All code is currently header only as the design of the interface is changing frequently. Header only might be viable for distribution since this should be a single includefor Arduino.
+
 ## Instruction Set and Architecture
 
 

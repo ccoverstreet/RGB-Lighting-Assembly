@@ -10,7 +10,9 @@
 int main() {
 	unsigned int stack[STACK_SIZE] = {};
 
-	parse_program(sample, stack, STACK_SIZE);
+
+	load_program_file("./programs/rgb_for_loop.txt", stack, STACK_SIZE);
+	//parse_program(sample, stack, STACK_SIZE);
 
 	// Custom definitions start at 0x00000010
 	i_set[0x00000010] = (Instruction){print_RGB, 1};
@@ -27,9 +29,10 @@ int main() {
 			}
 			cur_index = i_set[stack[cur_index]].func(cur_index, &stack[cur_index]);
 		} else {
+			printf("Instruction not recognized. Defaulting to NO-OP.\n");
 			cur_index += 1;
 		}
-		msleep(100);
+		msleep(000);
 	}
 
 	return 0;
