@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "./timing.h"
 
-#define STACK_SIZE 30
+#define STACK_SIZE 128
 
 int R1;
 

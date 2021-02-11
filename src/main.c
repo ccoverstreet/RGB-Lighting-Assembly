@@ -8,7 +8,8 @@
 
 
 int main() {
-	unsigned int stack[STACK_SIZE] = {};
+	// All this stack parsing should be moved into instructions.h
+	unsigned int stack[STACK_SIZE] = {0};
 
 
 	load_program_file("./programs/rgb_for_loop.txt", stack, STACK_SIZE);
